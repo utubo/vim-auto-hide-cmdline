@@ -7,8 +7,9 @@ aug END
 
 let s:timer = 0
 
-function! auto_hide_cmdline#Show(count, nowait)
+function! auto_hide_cmdline#Show(count, nowait) abort
   let &cmdheight = get(g:, 'auto_hide_cmdline_height', 1)
+  au! autohidecmdline
   if s:timer
     call timer_stop(s:timer)
   endif
@@ -23,7 +24,7 @@ function! auto_hide_cmdline#Show(count, nowait)
   endif
 endfunction
 
-function! auto_hide_cmdline#Hide(_)
+function! auto_hide_cmdline#Hide(_) abort
   au! autohidecmdline
   if mode() ==# 'c'
     au autohidecmdline CmdLineLeave * ++once set cmdheight=0
