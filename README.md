@@ -9,7 +9,7 @@ call dein#add('utubo/vim-auto-hide-cmdline')
 " Example easy-motion.
 " Before
 "   map s <Plug>(easymotion-s)
-" You can add `<Plug>(ahc)` to prevent waiting Enter.
+" You can add `<Plug>(ahc)` to prevent waiting for Enter.
 map s <Plug>(ahc)<Plug>(easymotion-s)
 ```
 
