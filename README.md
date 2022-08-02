@@ -1,5 +1,7 @@
 # vim-auto-hide-cmdline
 
+vim-auto-hide-cmdline is a Vim plugin to prevent wating for Enter when cmdheight is 0.
+
 ## Install
 ```vim
 call dein#add('utubo/vim-auto-hide-cmdline')
