@@ -7,7 +7,7 @@ call dein#add('utubo/vim-auto-hide-cmdline')
 " Example easy-motion.
 " Before
 "   map s <Plug>(easymotion-s)
-" Add `<Plug>(ahc)`
+" You can add `<Plug>(ahc)` to prevent waiting Enter.
 map s <Plug>(ahc)<Plug>(easymotion-s)
 ```
 
@@ -15,7 +15,7 @@ map s <Plug>(ahc)<Plug>(easymotion-s)
 
 ### `<Plug>(ahc)`
   Show the cmdline, and hide when leave the cmdline.<br>
-  This delays by &updatetime msec.
+  This delays by `&updatetime` msec.
 
 
 ### `<Plug>(ahc-nowait)`
