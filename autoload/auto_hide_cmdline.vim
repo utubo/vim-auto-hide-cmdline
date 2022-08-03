@@ -14,7 +14,7 @@ function! auto_hide_cmdline#Show(count, nowait) abort
     call timer_stop(s:timer)
   endif
   if a:nowait
-    au autohidecmdline CmdLineLeave * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
+    au autohidecmdline CmdLineLeave * ++once redraw | call timer_start(1, 'auto_hide_cmdline#Hide')
   else
     au autohidecmdline CursorHold * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
     au autohidecmdline CursorMoved * ++once let s:timer = timer_start(&updatetime, 'auto_hide_cmdline#Hide')
