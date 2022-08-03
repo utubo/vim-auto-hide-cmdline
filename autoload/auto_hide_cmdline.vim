@@ -14,10 +14,10 @@ function! auto_hide_cmdline#Show(count, nowait) abort
     call timer_stop(s:timer)
   endif
   if a:nowait
-    au autohidecmdline CmdLineLeave * ++once redraw | call timer_start(1, 'auto_hide_cmdline#Hide')
+    au autohidecmdline CmdLineLeave * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
   else
-    au autohidecmdline CursorHold * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
-    au autohidecmdline CursorMoved * ++once let s:timer = timer_start(&updatetime, 'auto_hide_cmdline#Hide')
+    au autohidecmdline CursorHold   * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
+    au autohidecmdline CursorMoved  * ++once let s:timer = timer_start(&updatetime, 'auto_hide_cmdline#Hide')
   endif
   if a:count !=# 0
     call feedkeys(string(a:count), 'i')
@@ -26,9 +26,11 @@ endfunction
 
 function! auto_hide_cmdline#Hide(_) abort
   au! autohidecmdline
+  let s:timer = 0
   if mode() ==# 'c'
     au autohidecmdline CmdLineLeave * ++once set cmdheight=0
   else
+    redraw
     set cmdheight=0
   endif
 endfunction
