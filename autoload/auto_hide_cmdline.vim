@@ -14,11 +14,12 @@ function! s:ClearEvents()
     call timer_stop(s:timer)
     let s:timer = 0
   endif
+  silent! cunmap <script> <CR>
 endfunction
 
 function! auto_hide_cmdline#Show(count, nowait, switch = 0) abort
   call s:ClearEvents()
-  let &cmdheight = a:switch ? 0 : get(g:, 'auto_hide_cmdline_height', 1)
+  let &cmdheight = a:switch ? 1 : get(g:, 'auto_hide_cmdline_height', 1)
   if &laststatus !=# 0
     let s:laststatus = &laststatus
     if a:switch || get(g:, 'auto_hide_cmdline_switch_statusline', 0)
@@ -31,6 +32,9 @@ function! auto_hide_cmdline#Show(count, nowait, switch = 0) abort
   else
     au autohidecmdline CursorHold   * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
     au autohidecmdline CursorMoved  * ++once let s:timer = timer_start(&updatetime, 'auto_hide_cmdline#Hide')
+  endif
+  if a:switch
+    cnoremap <script> <CR> <Cmd>set cmdheight=0<CR><CR>
   endif
   if a:count !=# 0
     call feedkeys(string(a:count), 'i')
