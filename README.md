@@ -25,7 +25,7 @@ map s <Plug>(ahc)<Plug>(easymotion-s)
   This delays by 1 msec.<br>
   for a plugin that echos empty string at end.
 
-### `<Plug>(ahc-swtich)`
+### `<Plug>(ahc-switch)`
   Switch the cmdline and the statusline.
   This does not prevent waiting for Enter.
   ```vim
