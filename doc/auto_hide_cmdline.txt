@@ -86,7 +86,7 @@ KEY-MAPPINGS					*auto_hide_cmdline-key-mappings*
 	for a plugin that echos empty string at end.
 
 
-<Plug>(ahc-swtich)				*<Plug>(ahc-swtich)*
+<Plug>(ahc-switch)				*<Plug>(ahc-switch)*
 	Switch the cmdline and the statusline.
 	This does not prevent waiting for Enter.
 >
