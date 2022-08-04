@@ -18,9 +18,7 @@ endfunction
 
 function! auto_hide_cmdline#Show(count, nowait, switch = 0) abort
   call s:ClearEvents()
-  if ! a:switch
-    let &cmdheight = get(g:, 'auto_hide_cmdline_height', 1)
-  endif
+  let &cmdheight = a:switch ? 0 : get(g:, 'auto_hide_cmdline_height', 1)
   if &laststatus !=# 0
     let s:laststatus = &laststatus
     if a:switch || get(g:, 'auto_hide_cmdline_switch_statusline', 0)
@@ -44,8 +42,10 @@ function! auto_hide_cmdline#Hide(_) abort
   if mode() ==# 'c'
     au autohidecmdline ModeChanged c:* ++once call auto_hide_cmdline#Hide(0)
   else
-    redraw
-    set cmdheight=0
+    if &cmdheight !=# 0
+      redraw
+      set cmdheight=0
+    endif
     let &laststatus = s:laststatus
   endif
 endfunction
