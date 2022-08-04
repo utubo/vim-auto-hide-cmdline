@@ -67,6 +67,11 @@ g:auto_hide_cmdline_height			*g:auto_hide_cmdline_height
 	Number of screen lines to use for the command-line.
 
 
+g:auto_hide_cmdline_switch_statusline
+	default value: unlet<br>
+	            1: When show the cmdline, hide the statusline.
+
+
 ------------------------------------------------------------------------------
 KEY-MAPPINGS					*auto_hide_cmdline-key-mappings*
 

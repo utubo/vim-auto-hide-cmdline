@@ -26,6 +26,11 @@ map s <Plug>(ahc)<Plug>(easymotion-s)
   for a plugin that echos empty string at end.
 
 ##  Configurations
-### g:auto_hide_cmdline_height
+### `g:auto_hide_cmdline_height`
   default value: = `1`<br>
   Number of screen lines to use for the command-line.
+
+### `g:auto_hide_cmdline_switch_statusline`
+  default value: unlet<br>
+              `1`: When show the cmdline, hide the statusline.
+
