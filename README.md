@@ -25,7 +25,21 @@ map s <Plug>(ahc)<Plug>(easymotion-s)
   This delays by 1 msec.<br>
   for a plugin that echos empty string at end.
 
+### `<Plug>(ahc-swtich)`
+  Switch the cmdline and the statusline.
+  This does not prevent waiting for Enter.
+  ```vim
+  " Example
+  nnoremap : <Plug>(ahc-switch):
+  vnoremap : <Plug>(ahc-switch):
+  nnoremap / <Plug>(ahc-switch)/
+  nnoremap ? <Plug>(ahc-switch)?
+  " save original :
+  nnoremap <Leader>: :
+  ```
+
 ##  Configurations
+
 ### `g:auto_hide_cmdline_height`
   default value: = `1`<br>
   Number of screen lines to use for the command-line.

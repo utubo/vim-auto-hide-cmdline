@@ -16,12 +16,14 @@ function! s:ClearEvents()
   endif
 endfunction
 
-function! auto_hide_cmdline#Show(count, nowait) abort
+function! auto_hide_cmdline#Show(count, nowait, switch = 0) abort
   call s:ClearEvents()
-  let &cmdheight = get(g:, 'auto_hide_cmdline_height', 1)
+  if ! a:switch
+    let &cmdheight = get(g:, 'auto_hide_cmdline_height', 1)
+  endif
   if &laststatus !=# 0
     let s:laststatus = &laststatus
-    if get(g:, 'auto_hide_cmdline_switch_statusline', 0)
+    if a:switch || get(g:, 'auto_hide_cmdline_switch_statusline', 0)
       set laststatus=0
     endif
   endif
