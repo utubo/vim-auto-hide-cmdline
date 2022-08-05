@@ -31,7 +31,7 @@ let g:auto_hide_cmdline_switch_statusline = 1
 ### `<Plug>(ahc-switch)`
   You can use `<Plug>(ahc-switch)` to prevent blinking the statusline,
   with `g:auto_hide_cmdline_switch_statusline`.<br>
-  This will be deprecated in the future.
+  ⚠This will be deprecated in the future.
   ```vim
   nnoremap : <Plug>(ahc-switch):
   vnoremap : <Plug>(ahc-switch):
