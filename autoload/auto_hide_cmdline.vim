@@ -64,7 +64,7 @@ endfunction
 
 let s:row = line('.')
 function! auto_hide_cmdline#SaveScrPos() abort
-  if &cmdheight || &laststatus ==# 0 || s:row ==# line('.')
+  if &cmdheight || &laststatus ==# 0 || s:row ==# line('.') || ! get(g:, 'auto_hide_cmdline_switch_statusline', 0)
     return
   endif
   let s:row = line('.')
