@@ -40,5 +40,20 @@ let g:auto_hide_cmdline_switch_statusline = 1
 
 ### `g:auto_hide_cmdline_switch_statusline`
   default value: unlet<br>
-              `1`: When show the cmdline, hide the statusline.
+  `1`: When show the cmdline, hide the statusline.
+
+#### Note
+  Without `<Plug>(ahc)`, This does not prevent waiting for Enter.
+  ```vim
+  nnoremap t1 :echo 1<CR>
+  " This will
+  " :echo 1
+  " 1
+  " Press ENTER of type command to continue.
+
+  nnoremap t2 <Plug>(ahc):echo 1<CR>
+  " This will
+  " 1
+  " and hide automatically, delay by &updatetime msec."
+  ```
 
