@@ -34,8 +34,12 @@ let g:auto_hide_cmdline_switch_statusline = 1
   This will be deprecated in the future.
   ```vim
   nnoremap : <Plug>(ahc-switch):
+  vnoremap : <Plug>(ahc-switch):
   nnoremap / <Plug>(ahc-switch)/
+  vnoremap / <Plug>(ahc-switch)/
   nnoremap ? <Plug>(ahc-switch)?
+  vnoremap ? <Plug>(ahc-switch)?
+  inoremap <C-r>= <C-o><Plug>(ahc-switch)<C-r>=
   " save original `:`
   nnoremap <Leader>: :
   ```
