@@ -8,11 +8,11 @@ set cpo&vim
 
 noremap <Plug>(ahc) <Cmd>call auto_hide_cmdline#Show(v:count, 0)<CR>
 noremap <Plug>(ahc-nowait) <Cmd>call auto_hide_cmdline#Show(v:count, 1)<CR>
-noremap <Plug>(ahc-switch) <Cmd>echoe 'Sry, (ahc-switch) is duplicated !'<CR>
+noremap <Plug>(ahc-switch) <Cmd>call auto_hide_cmdline#Switch(1)<CR>
 
 aug autohidecmdline_switch
   au!
-  au CmdlineEnter * silent! call auto_hide_cmdline#Switch()
+  au CmdlineEnter * silent! call auto_hide_cmdline#Switch(0)
   au CursorMoved * silent! call auto_hide_cmdline#SaveScrPos()
 aug END
 

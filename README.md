@@ -28,9 +28,17 @@ let g:auto_hide_cmdline_switch_statusline = 1
   This delays by 1 msec.<br>
   for a plugin that echos empty string at end.
 
-### ~~`<Plug>(ahc-switch)`~~
-  ~~Switch the cmdline and the statusline.~~
-  ~~This does not prevent waiting for Enter.~~
+### `<Plug>(ahc-switch)`
+  You can use `<Plug>(ahc-switch)` to prevent blinking the statusline,
+  with `g:auto_hide_cmdline_switch_statusline`.<br>
+  This will be deprecated in the future.
+  ```vim
+  nnoremap : <Plug>(ahc-switch):
+  nnoremap / <Plug>(ahc-switch)/
+  nnoremap ? <Plug>(ahc-switch)?
+  " save original `:`
+  nnoremap <Leader>: :
+  ```
 
 ##  Configurations
 

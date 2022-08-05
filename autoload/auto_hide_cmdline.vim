@@ -53,10 +53,11 @@ function! auto_hide_cmdline#Hide(_) abort
 endfunction
 
 " Switch statusline
-function! auto_hide_cmdline#Switch() abort
+function! auto_hide_cmdline#Switch(for_blink) abort
   if &laststatus ==# 0 || ! get(g:, 'auto_hide_cmdline_switch_statusline', 0)
     return
   endif
+  let &cmdheight = a:for_blink
   set laststatus=0
   redraw
   au autohidecmdline CmdLineLeave * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
