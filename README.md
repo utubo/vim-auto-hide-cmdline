@@ -11,6 +11,9 @@ call dein#add('utubo/vim-auto-hide-cmdline')
 "   map s <Plug>(easymotion-s)
 " You can add `<Plug>(ahc)` to prevent waiting for Enter.
 map s <Plug>(ahc)<Plug>(easymotion-s)
+
+" You can switch the statusline and the cmdline
+let g:auto_hide_cmdline_switch_statusline = 1
 ```
 
 ## KEY-MAPPINGS
