@@ -12,8 +12,8 @@ noremap <Plug>(ahc-switch) <Cmd>echoe 'Sry, (ahc-switch) is duplicated !'<CR>
 
 aug autohidecmdline_switch
   au!
-  au CmdlineEnter * call auto_hide_cmdline#Switch()
-  au CursorMoved * call auto_hide_cmdline#SaveScrPos()
+  au CmdlineEnter * silent! call auto_hide_cmdline#Switch()
+  au CursorMoved * silent! call auto_hide_cmdline#SaveScrPos()
 aug END
 
 let &cpo = s:save_cpo
