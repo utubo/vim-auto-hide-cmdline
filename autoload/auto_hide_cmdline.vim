@@ -59,10 +59,12 @@ function! auto_hide_cmdline#Switch(for_blink) abort
   endif
   if a:for_blink
     set cmdheight=1
+    au autohidecmdline CmdLineLeave * ++once set cmdheight=0 | let &laststatus = s:laststatus
+  else
+    au autohidecmdline CmdLineLeave * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
   endif
   set laststatus=0
   redraw
-  au autohidecmdline CmdLineLeave * ++once call timer_start(1, 'auto_hide_cmdline#Hide')
 endfunction
 
 let s:row = line('.')
