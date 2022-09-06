@@ -9,7 +9,7 @@ let s:laststatus = &laststatus
 let s:scrolloff = &scrolloff
 let s:timer = 0
 
-function! s:ClearEvents()
+function! s:ClearEvents() abort
   au! autohidecmdline
   if s:timer
     call timer_stop(s:timer)
@@ -18,7 +18,7 @@ function! s:ClearEvents()
   silent! cunmap <script> <CR>
 endfunction
 
-function! s:SaveVimSettings()
+function! s:SaveVimSettings() abort
   if &laststatus !=# 0
     let s:laststatus = &laststatus
   endif
@@ -27,10 +27,10 @@ function! s:SaveVimSettings()
   endif
 endfunction
 
-function! s:ResetVimSettings()
+function! s:ResetVimSettings() abort
   if &cmdheight !=# 0
     redraw
-    set cmdheight=0
+    silent! set cmdheight=0
   endif
   let &laststatus = s:laststatus
   let &scrolloff = s:scrolloff
